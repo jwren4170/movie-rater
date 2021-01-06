@@ -1,3 +1,4 @@
+import { MovieService } from './../services/movie.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
@@ -21,6 +22,11 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  exports: [RouterModule]
+  exports: [
+    RouterModule
+  ],
+  providers: [
+    MovieService
+  ]
 })
 export class MainModule { }

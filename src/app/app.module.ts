@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'movies' }
@@ -18,6 +19,7 @@ const routes: Routes = [
     BrowserModule,
     AuthModule,
     MainModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
