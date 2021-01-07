@@ -18,6 +18,7 @@
   <div id="rate-container">
     <h5>Rate it!</h5>
     <fa-icon *ngFor="let rate of [1,2,3,4,5]" [icon]="faStar" (mouseenter)="rateHover(rate)"
-      (mouseleave)="rateHovered = 0" [ngClass]="{'rebeccapurple': rateHovered >= rate}"></fa-icon>
+      (mouseleave)="rateHovered = 0" (click)="rateClicked(rate)" [ngClass]="{'rebeccapurple': rateHovered >= rate}">
+    </fa-icon>
   </div>
 </div>

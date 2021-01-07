@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { MovieService } from './../../services/movie.service';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -8,23 +9,35 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  faStar = faStar;
-  rateHovered = 0;
-
   @Input() movie: any;
+  @Output() updateMovie = new EventEmitter();
 
-  constructor() { }
+  faStar = faStar;
+  rateHovered: number = 0;
+
+  constructor(private movieSvc: MovieService) { }
 
   ngOnInit(): void {
 
   }
 
-  rateHover = (rate: any) => {
+  rateHover = (rate: number) => {
     this.rateHovered = rate;
   }
 
   rateClicked = (rate: any) => {
-    this.rateHovered = rate;
+    this.movieSvc.rateMovie(rate, this.movie.id).subscribe(
+      data => this.getDetails(),
+      error => console.log(error)
+    );
+  }
+
+
+  getDetails = () => {
+    this.movieSvc.getMovie(this.movie.id).subscribe(
+      movie => this.updateMovie.emit(movie),
+      error => console.log(error)
+    );
   }
 
 }
