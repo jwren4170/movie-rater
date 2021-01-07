@@ -1,5 +1,7 @@
+import { Movie } from './../models/movie';
 import { MovieService } from './../services/movie.service';
 import { Component, OnInit } from '@angular/core';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'app-main',
@@ -8,22 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  movies: any = [];
-  selectedMovie = null;
+  movies: Movie[] = [];
+  selectedMovie: Movie = null;
 
   constructor(private movieSvc: MovieService) { }
 
   ngOnInit(): void {
     this.movieSvc.getMovies().subscribe(
-      data => {
+      (data: Movie[]) => {
         this.movies = data;
       },
-      error => {
+      (error: any) => {
         console.log(error);
       });
   }
 
-  selectMovie = (movie: any) => {
+  selectMovie = (movie: Movie) => {
     this.selectedMovie = movie;
   }
 
