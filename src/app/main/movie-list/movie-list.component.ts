@@ -1,5 +1,4 @@
-import { MovieService } from './../../services/movie.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-movie-list',
@@ -8,17 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
 
-  movies: any = [];
+  @Input() movies: any = [];
+  @Output() selectMovie = new EventEmitter();
 
-  constructor(private movieSvc: MovieService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.movieSvc.getMovies().subscribe(
-      data => {
-        this.movies = data;
-      },
-      error => {
-        console.log(error);
-      });
+  ngOnInit(): void { }
+
+  movieSelected = (movie: any) => {
+    this.selectMovie.emit(movie);
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-movie-details',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDetailsComponent implements OnInit {
 
+  faStar = faStar;
+  rateHovered = 0;
+
+  @Input() movie: any;
+
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  rateHover = (rate: any) => {
+    this.rateHovered = rate;
+  }
+
+  rateClicked = (rate: any) => {
+    this.rateHovered = rate;
   }
 
 }

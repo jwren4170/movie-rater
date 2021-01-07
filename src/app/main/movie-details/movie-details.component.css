@@ -1,0 +1,21 @@
+fa-icon.orange{
+  color: orange;
+}
+
+fa-icon.rebeccapurple{
+  color: rebeccapurple;
+}
+
+fa-icon{
+  padding-left: .3em;
+}
+
+#rate-container{
+  border-top: 2px solid rebeccapurple;
+  padding-top: 10px;
+}
+
+#rate-container{
+  cursor: pointer;
+  font-size: 1.2em;
+}

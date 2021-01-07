@@ -6,9 +6,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieFormComponent } from './movie-form/movie-form.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
-  { path: 'movies', component: MainComponent }
+  { path: 'movies', component: MainComponent },
+  // { path: 'detail/:id', component: MovieDetailsComponent }
 ];
 
 @NgModule({
@@ -20,6 +22,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    FontAwesomeModule,
     RouterModule.forChild(routes)
   ],
   exports: [

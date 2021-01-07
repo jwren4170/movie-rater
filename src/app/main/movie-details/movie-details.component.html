@@ -1,1 +1,23 @@
-<p>movie-details works!</p>
+<h2 class="text-center" style="text-decoration: underline;">Movie Details</h2>
+<div *ngIf="movie">
+  <h5>{{movie.title}}</h5>
+
+  <p>
+    <strong>No. of Votes: {{movie.no_of_ratings}}
+      <br> Average rating:
+      <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 0}"></fa-icon>
+      <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 1}"></fa-icon>
+      <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 2}"></fa-icon>
+      <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 3}"></fa-icon>
+      <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 4}"></fa-icon>
+    </strong>
+  </p>
+  <p>{{movie.desc}}</p>
+
+
+  <div id="rate-container">
+    <h5>Rate it!</h5>
+    <fa-icon *ngFor="let rate of [1,2,3,4,5]" [icon]="faStar" (mouseenter)="rateHover(rate)"
+      (mouseleave)="rateHovered = 0" [ngClass]="{'rebeccapurple': rateHovered >= rate}"></fa-icon>
+  </div>
+</div>

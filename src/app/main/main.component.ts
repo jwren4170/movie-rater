@@ -1,3 +1,4 @@
+import { MovieService } from './../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  movies: any = [];
+  selectedMovie = null;
+
+  constructor(private movieSvc: MovieService) { }
 
   ngOnInit(): void {
+    this.movieSvc.getMovies().subscribe(
+      data => {
+        this.movies = data;
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+  selectMovie = (movie: any) => {
+    this.selectedMovie = movie;
   }
 
 }
