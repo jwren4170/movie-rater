@@ -11,7 +11,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 export class MainComponent implements OnInit {
 
   movies: Movie[] = [];
-  selectedMovie: Movie = null;
+  selectedMovie = null;
 
   constructor(private movieSvc: MovieService) { }
 

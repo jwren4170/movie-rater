@@ -9,8 +9,7 @@ import { MovieFormComponent } from './movie-form/movie-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
-  { path: 'movies', component: MainComponent },
-  // { path: 'detail/:id', component: MovieDetailsComponent }
+  { path: 'movies', component: MainComponent }
 ];
 
 @NgModule({

@@ -1,16 +1,16 @@
-.main-comp-layout{
+.main-comp-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 }
 
-app-movie-list{
+app-movie-list {
   background-color: rebeccapurple;
-  height: 300px;
+  height: auto;
   padding: 20px;
 }
 
-app-movie-details{
+app-movie-details {
   background-color: blue;
   height: 300px;
   padding: 20px;

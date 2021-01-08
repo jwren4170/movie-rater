@@ -10,7 +10,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  @Input() movie: Movie;
+  @Input() movie!: Movie;
   @Output() updateMovie = new EventEmitter<Movie>();
 
   faStar = faStar;

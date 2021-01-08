@@ -1,3 +1,19 @@
 .movie-title{
   cursor: pointer;
 }
+
+.movie-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: 10px
+}
+
+.ng-fa-icon:nth-child(3){
+  color: darkred;
+  cursor: pointer;
+}
+
+.ng-fa-icon:nth-child(2){
+  color: blue;
+  cursor: pointer;
+}

@@ -1,4 +1,6 @@
 <h2 class="text-center" style="text-decoration: underline;">Movies</h2>
-<div *ngFor="let movie of movies" (click)="movieSelected(movie)">
+<div class="movie-item" *ngFor="let movie of movies" (click)="movieSelected(movie)">
   <h4 class="movie-title">{{movie.title}}</h4>
+  <fa-icon [icon]="faEdit"></fa-icon>
+  <fa-icon [icon]="faTrash"></fa-icon>
 </div>
